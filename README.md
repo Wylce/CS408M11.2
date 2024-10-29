@@ -22,3 +22,5 @@ A simple bulleted list below is sufficient. For example:
 - Icons: https://fontawesome.com/
 - Fonts: https://fonts.google.com/
 - etc.
+
+- https://stackoverflow.com/questions/30603981/onclick-event-triggering-onload-for-button
