@@ -67,12 +67,14 @@ function fillTable(data){
             }
         }*/
 
+        const buttonCell = document.createElement("td");
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.id = element.id;
         deleteButton.addEventListener('click', deleteData.bind(deleteButton, element.id));
 
-        row.appendChild(deleteButton);
+        buttonCell.appendChild(deleteButton);
+        row.appendChild(buttonCell);
 
         tableBody.appendChild(row);
         
