@@ -24,3 +24,5 @@ A simple bulleted list below is sufficient. For example:
 - etc.
 
 - https://stackoverflow.com/questions/30603981/onclick-event-triggering-onload-for-button
+- https://stackoverflow.com/questions/3547035/getting-html-form-values
+- https://www.learnwithjason.dev/blog/get-form-values-as-json/

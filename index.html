@@ -19,6 +19,7 @@
     <button id="load-data">Load Data</button>
     <p>Loads data from the server</p>
     <script>
+        /*
         document.getElementById("load-data").onclick = function () {
             let lambda = document.getElementById("lambda-info"); 
             let xhr = new XMLHttpRequest();
@@ -33,17 +34,33 @@
         }
 
         function fillTable(data){
+            console.log(data);
             let table = document.getElementById("data-table");
             let currentBody = document.getElementById("table-body")
             let tableBody = document.createElement("tbody");
             tableBody.id = "table-body";
             data.forEach((element => {
-                console.log(element);
+                console.log(element['id']);
                 const row = document.createElement("tr");
+                
+                const idCell = document.createElement("td");
+                idCell.innerHTML = element['id'];
+                row.appendChild(idCell);
 
+                const nameCell = document.createElement("td");
+                nameCell.innerHTML = element['name'];
+                row.appendChild(nameCell);
+
+                const priceCell = document.createElement("td");
+                priceCell.innerHTML = element['price'];
+                row.appendChild(priceCell);
+                //const idText = document.createTextNode(element['id']);
+
+                //idCell.appendChild(idText);
+/*
                 for (var prop in element) {
                     if (element.hasOwnProperty(prop)) {
-                        console.log(element[prop]);
+                        //console.log(element[prop]);
 
                         const cell = document.createElement("td");
                         const text = document.createTextNode(element[prop]);
@@ -69,10 +86,8 @@
 
             console.log(table.tBodies);
 
-            table.replaceChild(tableBody, currentBody);
-
-            
-        }
+            table.replaceChild(tableBody, currentBody);   
+        }*/
 
     </script>
 
@@ -92,26 +107,57 @@
     </table>
 
     <hr>
-    <button id="send-data">Send Data</button>
-    <p>Sends an example JSON object to the server with id 11111</p>
+
+    <form id="entry-form">
+        <legend>Enter Data into Table</legend>
+        <div>
+            <label for="id">ID: </label>
+            <input type="text" name="id" id="id" placeholder="placeholder" required>
+        </div>
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" placeholder="placeholder" required>
+        </div>
+        <div>
+            <label for="price">Price: </label>
+            <input type="text" name="price" id="price" placeholder="placeholder" required>
+        </div>
+        <input type="submit" value="Add Item">
+    </form>
+
     <script>
-        document.getElementById("send-data").onclick = function () {
+        /*const entryForm = document.getElementById("entry-form");
+        entryForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            console.log("hi");
+            
+            sendData(new FormData(entryForm));
+            entryForm.reset();
+        }      
+        );
+
+        //document.getElementById("send-data").onclick = sendData;
+        
+        function sendData(data) {
+
+            console.log(data);
+            console.log("id: " + data.get('id'));
+            console.log(JSON.stringify(data));
+
             let xhr = new XMLHttpRequest();
             xhr.open("PUT", "https://67yk566zoe.execute-api.us-east-2.amazonaws.com/items");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(JSON.stringify({
-                "id": "123",
-                "price": 19,
-                "name": "test put value"
+                "id": data.get('id'),
+                "price": data.get('price'),
+                "name": data.get('name')
             }));
-        }
+        }*/
     </script>
 
     <hr>
-    <button id="delete-data">Delete Data</button>
-    <p>Deletes a JSON object from the server with 11111</p>
-    <script>
-        document.getElementById("delete-data").addEventListener('click', deleteData);
+    <script src="js/main.js">
+        /*document.getElementById("delete-data").addEventListener('click', deleteData);
         
         function deleteData (id) {
             console.log("deleted " + id);
@@ -119,24 +165,8 @@
             xhr.open("DELETE", "https://67yk566zoe.execute-api.us-east-2.amazonaws.com/items/" + id);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send();
-        }
+        }*/
     </script>
-
-    <form method="put" id="entry-form">
-        <div>
-            <label for="id-field">ID: </label>
-            <input type="text" name="id-field" id="id-field" placeholder="placeholder" required>
-        </div>
-        <div>
-            <label for="name-field">Name: </label>
-            <input type="text" name="name-field" id="name-field" placeholder="placeholder" required>
-        </div>
-        <div>
-            <label for="prive-field">Name: </label>
-            <input type="text" name="price-field" id="price-field" placeholder="placeholder" required>
-        </div>
-        <input type="submit" value="Add Item">
-    </form>
 
 </body>
 
