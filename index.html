@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-US">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,56 +10,51 @@
 </head>
 
 <body>
-    <h1>Simple Demo for PUT, GET, and DELETE</h1>
+    <header><h1>Simple Demo for PUT, GET, and DELETE</h1></header>
     
-<main>
-    <div id="data-display">
+    <main>
+        <div id="data-display">
+        <button id="load-data">Load Data</button>
 
-    <button id="load-data">Load Data</button>
-    <p>Loads data from the server</p>
-
-    <p id="lambda-info">
-        <!-- loaded with AJAX -->
-        <table id="data-table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-    
-            </tbody>
-    
-        </table>
-    </p>
-    </div>
-    
-
-    <hr>
-
-    <form id="entry-form">
-        <legend>Enter Data into Table</legend>
-        <div>
-            <label for="id">ID: </label>
-            <input type="text" name="id" id="id" placeholder="placeholder" required>
+        <p id="lambda-info">
+            <table id="data-table" tabindex="0">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- loaded with AJAX -->
+                </tbody>
+            </table>
+        </p>
         </div>
-        <div>
-            <label for="name">Name: </label>
-            <input type="text" name="name" id="name" placeholder="placeholder" required>
+        
+        <div id="data-entry">
+        <form id="entry-form">
+            <legend>Enter data into table</legend>
+            <div class="text-input">
+                <label for="id">ID: </label>
+                <input type="text" name="id" id="id" placeholder="placeholder" required pattern="[0-9]">
+            </div>
+            <div class="text-input">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" placeholder="placeholder" required>
+            </div>
+            <div class="text-input">
+                <label for="price">Price: </label>
+                <input type="text" name="price" id="price" placeholder="placeholder" required pattern="[0-9]">
+            </div>
+            <p><i>ID and Price must be numbers.</i></p>
+            <input type="submit" value="Add Item">
+        </form>
         </div>
-        <div>
-            <label for="price">Price: </label>
-            <input type="text" name="price" id="price" placeholder="placeholder" required>
-        </div>
-        <input type="submit" value="Add Item">
-    </form>
 
-    <hr>
-    <script src="js/main.js"></script>
-</main>
+        <script src="js/main.js"></script>
+    </main>
 </body>
 
 </html>

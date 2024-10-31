@@ -18,13 +18,12 @@ function loaded() {
 }*/
 
 document.getElementById("load-data").onclick = function () {
-    let lambda = document.getElementById("lambda-info"); 
     let xhr = new XMLHttpRequest();
     xhr.responseType = "json";
     xhr.addEventListener("load", function () {
-        //lambda.innerHTML = xhr.response;
-        //console.log(xhr.response);
         fillTable(xhr.response);
+        document.getElementById("data-table").style.visibility = 'visible';
+        document.getElementById("load-data").textContent = "Refresh Data"
     });
     xhr.open("GET", "https://67yk566zoe.execute-api.us-east-2.amazonaws.com/items");
     xhr.send();
@@ -51,21 +50,6 @@ function fillTable(data){
         const priceCell = document.createElement("td");
         priceCell.innerHTML = element['price'];
         row.appendChild(priceCell);
-        //const idText = document.createTextNode(element['id']);
-
-        //idCell.appendChild(idText);
-/*
-        for (var prop in element) {
-            if (element.hasOwnProperty(prop)) {
-                //console.log(element[prop]);
-
-                const cell = document.createElement("td");
-                const text = document.createTextNode(element[prop]);
-
-                cell.appendChild(text);
-                row.appendChild(cell);
-            }
-        }*/
 
         const buttonCell = document.createElement("td");
         const deleteButton = document.createElement("button");
@@ -75,20 +59,12 @@ function fillTable(data){
 
         buttonCell.appendChild(deleteButton);
         row.appendChild(buttonCell);
-
         tableBody.appendChild(row);
         
     }))
-
-    //currentyBody = tableBody;
-    //table.removeChild(currentBody);
-
     console.log(table.tBodies);
-
     table.replaceChild(tableBody, currentBody);   
 }
-
-
 
 const entryForm = document.getElementById("entry-form");
         entryForm.addEventListener("submit", function(event) {

@@ -1,16 +1,50 @@
 body {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin: .5%;
 }
 
 
 h1{
-  border-color: #d3e644;
+  border-color: #2989d8;
+  background-color: rgb(0, 94, 94);
+  color: white;
   border-style: dashed;
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+button {
+  height: 2.5em;
+  font-size: 1.2em;
+  border-radius: 10px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+button, input[type='submit']{
+  background-color: rgb(219, 255, 255);
+  border: 2px solid rgb(38, 116, 139);
+}
+
+button:hover, input[type='submit']:hover{
+  background-color: rgb(149, 255, 255);
+  border: 2px solid rgb(100, 164, 184);
+
+  cursor: pointer;
 }
 
 main {
-  /*display: flex;*/
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
   text-align: center;
+
+  padding-top: 20px;
 
   background-color: lightblue;
 }
@@ -18,47 +52,99 @@ main {
 #data-display{
   margin-right: auto;
   margin-left: auto;
+
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-#lambda-info{
-  background: white;
+#data-entry{
+  display: grid;
+  justify-items: center;
 }
 
 #data-table{
+  font-family:'Arial';
+  visibility: hidden;
+
   background: white;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
 
   table-layout: fixed;
-
   border-collapse: collapse;
   border: 1px solid black;
-
 
   width: 100%;
 }
 
+#data-table button{
+  font-size: 1em;
+  height: 2em;
+}
+
 th {
   border: 1px solid black;
+  line-height: 2.4em;
+  background-color: rgb(0, 94, 94);
+  color: white;
+  
 }
 
 td {
-  border: 1px solid black;
+  border: 3px solid darkcyan;
 
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-
 form{
+  position: relative;
+  top: 20%;
+
+  border-radius: 10px;
+
+  flex: none;
+
   background: white;
 
-  width: 400px;
-
   justify-self: center;
-  padding-left: auto;
-  padding-right: auto;
+  padding: 10px 30px 25px 30px;
+  padding-right: 30px;
 
   text-align: left;
 
   border: 1px solid black;
+}
+
+form legend{
+  font-size: 1.5em;
+  padding-bottom: 30px;
+}
+
+input[type=submit]{
+  text-align: center;
+  justify-self: center;
+
+  margin-left: auto;
+  margin-right: auto;
+
+
+  font-size: 1em;
+  border-radius: 10px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+
+.text-input{
+  padding-bottom: 15px;
+}
+
+form label{
+  font-size: 1.2em;
+}
+
+input{
+  font-size: .8em;
+
+  margin-left: auto;
 }
