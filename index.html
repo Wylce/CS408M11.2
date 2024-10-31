@@ -38,7 +38,7 @@
             <legend>Enter data into table</legend>
             <div class="text-input">
                 <label for="id">ID: </label>
-                <input type="text" name="id" id="id" placeholder="placeholder" required pattern="[0-9]">
+                <input type="text" name="id" id="id" placeholder="placeholder" required inputmode="numeric" maxlength="30" pattern="[0-9]{0,20}">
             </div>
             <div class="text-input">
                 <label for="name">Name: </label>
@@ -46,14 +46,14 @@
             </div>
             <div class="text-input">
                 <label for="price">Price: </label>
-                <input type="text" name="price" id="price" placeholder="placeholder" required pattern="[0-9]">
+                <input type="text" name="price" id="price" placeholder="placeholder" required inputmode="numeric" maxlength="30" pattern="[0-9]{0,20}">
             </div>
             <p><i>ID and Price must be numbers.</i></p>
             <input type="submit" value="Add Item">
         </form>
         </div>
 
-        <script src="js/main.js"></script>
+        <script type="module" src="js/main.js"></script>
     </main>
 </body>
 
