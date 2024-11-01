@@ -49,6 +49,8 @@ main {
   background-color: lightblue;
 }
 
+/**-- Load Button and Table styling --*/
+
 #data-display{
   margin-right: auto;
   margin-left: auto;
@@ -94,6 +96,8 @@ td {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+/**-- Input Form styling --*/
 
 form{
   position: relative;

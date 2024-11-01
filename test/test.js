@@ -1,14 +1,18 @@
 import {getData} from '../js/main.js';
 import {dataEvent} from '../js/main.js';
 
-QUnit.module('get', function() {
+QUnit.module('CRUD', function() {
 
-    QUnit.test('make sure the getData function adds an object to the data attribute', function(assert) {
+    QUnit.test('The getData function should add a data property to the holder that is not undefined', function(assert) {
+        const done = assert.async();
+
         const holder = new Object();
         getData(holder)
-        
-        assert.notnull(result, 'hello');
-    });
 
+        document.addEventListener('dataReady', function () {
+            assert.ok(holder.data);
+            done();
+        })
+    });
 
 });

@@ -1,17 +1,4 @@
-
-window.onload = loaded;
-
-
-/**
- * Simple Function that will be run when the browser is finished loading.
- */
-function loaded() {
-    // Assign to a variable so we can set a breakpoint in the debugger!
-    //const hello = sayHello();
-    //console.log(hello);
-}
-
-//This event is necessary because I moved the XMLHttpRequest to its own
+//This event is here cause I moved the XMLHttpRequest to its own
 //function for testing, so now that function needs its own event to fire
 //when the data is finished loading and can be put into the table
 export const dataEvent = new Event('dataReady');
@@ -28,6 +15,12 @@ document.getElementById("load-data").onclick = async function () {
     })  
 }
 
+/**
+ * Loads data from the table storied in AWS and stores it as a property
+ * of a holder object, passed in from the calling function.
+ * 
+ * @param {*} holder an empty object used to make the data accessible to the calling function
+ */
 export function getData(holder){
     let xhr = new XMLHttpRequest();
     xhr.responseType = "json";
@@ -40,6 +33,12 @@ export function getData(holder){
     xhr.send();
 }
 
+/**
+ * Creates a new HTML table body out of data it's been passed and replaces
+ * the current body of the table in index.html
+ * 
+ * @param {*} data 
+ */
 function fillTable(data){
     let table = document.getElementById("data-table");
     let currentBody = document.getElementById("table-body")
@@ -82,10 +81,14 @@ const entryForm = document.getElementById("entry-form");
         sendData(new FormData(entryForm));
         entryForm.reset();
     }      
-    );
+);
 
-        //document.getElementById("send-data").onclick = sendData;
-        
+/**
+ * Takes in one data object and creates a PUT request with it to send to
+ * the AWS table
+ * 
+ * @param {*} data 
+ */
 export function sendData(data) {
 
     console.log(data);
@@ -103,8 +106,11 @@ export function sendData(data) {
 }
 
 
-//document.getElementById("delete-data").addEventListener('click', deleteData);
-        
+/**
+ * Takes an id number and makes a DELETE request from it to send to the AWS table
+ * 
+ * @param {*} id 
+ */        
 export function deleteData (id) {
     console.log("deleted " + id);
     let xhr = new XMLHttpRequest();
